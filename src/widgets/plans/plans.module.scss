@@ -1,0 +1,15 @@
+@use './../../styles/mixins';
+.plans {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 16px;
+}
+.text {
+  @include mixins.title-1;
+  text-transform: uppercase;
+  text-align: left;
+  &_highlighted {
+    color: var(--blue);
+  }
+}
