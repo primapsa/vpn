@@ -1,0 +1,18 @@
+@use './../../styles/mixins';
+.modal {
+  display: flex;
+  padding-top: 24px;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.text {
+  @include mixins.title-1;
+  text-transform: uppercase;
+}
+.nickname {
+  @include mixins.body-text;
+  padding: 16px 0;
+  border-top: 1px solid var(--grey-light);
+  border-bottom: 1px solid var(--grey-light);
+}
