@@ -1,49 +1,15 @@
 :root {
-  --blue: #3177F2;
-  --orange: #FF5D17;
+  --blue: #0358ea;
+  --blue-light: #82A9EEFF;
+  --blue-dark: #0358EAFF;
+  --orange: #ef4a02;
   --orange-light: #FF8317;
+  --orange-dark: #EF4A02FF;
   --black: #2B2B2B;
   --grey: #646464;
+  --grey-light: #F8F8F8;
   --white: #FFFFFF;
+  --font-roboto: Roboto, serif;
 
 }
-@mixin large-title {
-  font-size: 32px;
-  line-height: 46px;
-  font-weight: 700;
-}
-@mixin title-1 {
-  font-size: 28px;
-  line-height: 34px;
-  font-weight: 700;
-}
-@mixin title-2 {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 700;
-}
-@mixin subtitle {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
-}
-@mixin body-text {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 500;
-}
-@mixin text {
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 600;
-}
-@mixin capture {
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 400;
-}
-@mixin footnote {
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 500;
-}
+
