@@ -1,0 +1,47 @@
+@use './../../styles/mixins';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+
+  &_fullwidth {
+    width: 100%;
+  }
+
+  &_primary {
+    height: 64px;
+    width: 396px;
+    @include mixins.title-2;
+    background: var(--orange);
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--orange-light);
+    }
+
+    &:active {
+      background: var(--orange-dark);
+    }
+  }
+
+  &_secondary {
+    font-family: var(--font-roboto);
+    border-radius: 24px;
+    background: var(--blue);
+    @include mixins.text;
+
+    &:hover {
+      background: var(--blue-light);
+    }
+    &:active {
+      background: var(--blue-dark);
+    }
+  }
+
+}
+
+
