@@ -21,7 +21,7 @@ export default Button;
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary';
-    wd?: 'content' | 'full';
+    width?: 'content' | 'full';
     className?: string;
     children: React.ReactNode
 }

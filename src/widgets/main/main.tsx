@@ -10,7 +10,7 @@ const Main = ({onClick}:MainProps) => {
         <section className={styles.section}>
             <h3 className={styles.title}>Access <span className={styles.title_highlitghed}>everything
                 securely</span> with <br/>VPN</h3>
-            <Image  className={styles.img} src={UserImg as string} alt='vpn user' width={540} height={210}/>
+            <Image  className={styles.img} src={UserImg as unknown as string} alt='vpn user' width={540} height={210}/>
             <Button variant="primary" onClick={onClick}>Get VPN</Button>
             <Reward/>
             <div className={styles.plates}>
@@ -26,6 +26,6 @@ const Main = ({onClick}:MainProps) => {
 export default React.memo(Main);
 
 interface MainProps {
-    onClick: () => void;
+    onClick?: () => void;
     className?: string;
 }
