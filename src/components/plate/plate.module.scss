@@ -1,0 +1,27 @@
+@use './../../styles/mixins';
+
+.plate {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-items: flex-start;
+  gap: 0 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  grid-row: 1 / 3;
+  justify-self: center;
+}
+
+.title {
+  @include mixins.title-2;
+}
+
+.text {
+  @include mixins.capture;
+  color: var(--grey);
+  align-self: flex-start;
+}
