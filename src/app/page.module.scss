@@ -1,0 +1,28 @@
+@use './../styles/mixins';
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+}
+.main {
+  max-width: 924px;
+  padding: 151px 16px 93px 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
+}
+.text {
+  color: blue;
+  @include mixins.title-2;
+  text-align: center;
+}
+@media (max-width: 672px){
+  .main {
+   gap: 40px;
+  }
+}
+

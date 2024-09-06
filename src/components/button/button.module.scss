@@ -5,19 +5,22 @@
   align-items: center;
   justify-content: center;
   color: var(--white);
+  border: none;
+  cursor: pointer;
 
   &_fullwidth {
-    width: 100%;
+    width: 100% !important;
   }
 
   &_primary {
     height: 64px;
-    width: 396px;
+    max-width: 396px;
+    width: 100%;
     @include mixins.title-2;
     background: var(--orange);
     border-radius: 16px;
-    border: none;
-    cursor: pointer;
+
+
 
     &:hover {
       background: var(--orange-light);
@@ -30,6 +33,7 @@
 
   &_secondary {
     font-family: var(--font-roboto);
+    padding: 11px 26px;
     border-radius: 24px;
     background: var(--blue);
     @include mixins.text;

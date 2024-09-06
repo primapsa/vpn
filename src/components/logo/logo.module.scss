@@ -1,10 +1,9 @@
 @use './../../styles/mixins';
 .logo {
-  position: fixed;
   display: flex;
   gap: 4px;
   align-items: center;
   &__text {
-    @include mixins.body-text
+    @include mixins.subtitle
   }
 }
