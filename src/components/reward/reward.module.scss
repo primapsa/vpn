@@ -1,0 +1,34 @@
+@use './../../styles/mixins';
+
+.reward {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  gap: 0 8px;
+
+  &__title {
+    color: var(--blue);
+    @include mixins.capture;
+  }
+
+  &__text {
+    @include mixins.text;
+    color: var(--blue);
+    font-family: var(--font-roboto);
+  }
+  &__wing {
+    width: 22px;
+    height: 42px;
+    grid-row: 1 / 3;
+    background-repeat: no-repeat;
+    background-size: contain;
+    &_left {
+      grid-column: 1;
+      background-image: url("/icons/wing_left.svg");
+    }
+    &_right {
+      grid-column: 3;
+      background-image: url("/icons/wing_right.svg");
+    }
+  }
+}
