@@ -72,7 +72,7 @@ export default nameSlice.reducer;
 interface NameState {
     names: NameData[]
     loading: boolean;
-    isModal: false;
+    isModal: boolean;
 }
 
 interface NameData {

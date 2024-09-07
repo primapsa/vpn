@@ -24,7 +24,7 @@ const Main = forwardRef<HTMLElement, MainProps>(({onClick}, ref) => {
         </section>
     );
 });
-
+Main.displayName = 'Main';
 export default React.memo(Main);
 
 interface MainProps {

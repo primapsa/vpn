@@ -4,7 +4,7 @@ import {Button, Plan} from "@/components";
 import {useAppDispatch, useAppSelector} from "@/lib/hooks";
 import {updateChecked, updateIsModal} from "@/lib/features/nameSlice";
 
-const Plans = forwardRef<HTMLElement, undefined>((_, ref) => {
+const Plans = forwardRef<HTMLElement, EmptyProps>((_, ref):JSX.Element => {
     const [error, setError] = useState<boolean>(false)
     const user = useAppSelector((state) => state.users.names);
     const activeUser = user.find(user => user.isChecked)
@@ -48,5 +48,6 @@ const Plans = forwardRef<HTMLElement, undefined>((_, ref) => {
         </section>
     );
 });
-
+Plans.displayName = 'Plans';
+type EmptyProps = unknown;
 export default React.memo(Plans);

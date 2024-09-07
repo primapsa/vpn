@@ -1,11 +1,11 @@
 "use client";
 import React from 'react';
 import styles from './modal.module.scss'
-import {useForm, Resolver} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import {Button} from "@/components";
 import classNames from "classnames";
 import {useAppDispatch, useAppSelector} from "@/lib/hooks";
-import {updateIsModal, updateModal} from "@/lib/features/nameSlice";
+import {updateIsModal} from "@/lib/features/nameSlice";
 
 const Modal = () => {
     const users = useAppSelector((state) => state.users.names);
@@ -26,7 +26,7 @@ const Modal = () => {
     return (
         <div className={styles.modal}>
             <p className={styles.text}>Your name</p>
-            <p className={styles.nickname}>{activeUser.name}</p>
+            <p className={styles.nickname}>{activeUser?.name}</p>
             <form onSubmit={onSubmit}>
                 <input
                     className={classes}
@@ -53,10 +53,7 @@ const Modal = () => {
 };
 export default Modal;
 
-interface ModalProps {
-    name: string;
-    onClose?: () => void;
-}
+
 
 interface IFormInput {
     email: string;
