@@ -1,18 +1,52 @@
-import React from 'react';
+import React, {forwardRef, useCallback, useEffect, useState} from 'react';
 import styles from './plans.module.scss'
 import {Button, Plan} from "@/components";
+import {useAppDispatch, useAppSelector} from "@/lib/hooks";
+import {updateChecked, updateIsModal} from "@/lib/features/nameSlice";
 
-const TEST = ['Gerardo Marchand', 'Gerardo Marchand', 'Gerardo Marchand']
-const Plans = () => {
-    const planList = TEST.map((p, i) => <Plan value={p} key={i}/>)
+const Plans = forwardRef<HTMLElement, undefined>((_, ref) => {
+    const [error, setError] = useState<boolean>(false)
+    const user = useAppSelector((state) => state.users.names);
+    const activeUser = user.find(user => user.isChecked)
+    const loading = useAppSelector((state) => state.users.loading);
+    const dispatch = useAppDispatch();
+
+    const onChangeHandler = useCallback((id:string) => {
+        dispatch(updateChecked(id))
+    },[])
+
+    const onGetClickHandler = useCallback(() => {
+        if(activeUser){
+            dispatch(updateIsModal(true))
+        }else{
+            setError(true)
+        }
+    },[activeUser,error])
+
+    useEffect(() => {
+        if(error && activeUser){
+            setError(false)
+        }
+    }, [activeUser]);
+
+    const planList = user.map((p) =>
+        <Plan value={p.name} key={p.id} checked={p.isChecked} onChange={() => onChangeHandler(p.id)}/>)
 
     return (
-        <section className={styles.plans}>
-            <p className={styles.text}>Choose your <span className={styles.text_highlighted}>NAme</span></p>
-            {planList}
-            <Button variant="primary" width="full">Get VPN</Button>
+        <section className={styles.plans} ref={ref}>
+            {
+                loading ? <span>Loading...</span> :
+                    <>
+                        <p className={styles.text}>Choose your <span className={styles.text_highlighted}>NAme</span></p>
+                        {
+                            error && <span className={styles.error}>Make a selection</span>
+                        }
+                        {planList}
+                        <Button variant="primary" width="full" onClick={onGetClickHandler}>Get VPN</Button>
+                    </>
+            }
         </section>
     );
-};
+});
 
-export default Plans;
+export default React.memo(Plans);

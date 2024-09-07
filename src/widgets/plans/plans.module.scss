@@ -13,3 +13,8 @@
     color: var(--blue);
   }
 }
+.error {
+  margin-top: 10px;
+  @include mixins.body-text;
+  color: var(--orange-dark);
+}

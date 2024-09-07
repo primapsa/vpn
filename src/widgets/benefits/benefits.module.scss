@@ -1,5 +1,6 @@
 .benefits {
   display: grid;
+  width: 100%;
   grid-template-columns: 1fr 1fr;
   gap: 8px 0;
   justify-content: space-between;
@@ -7,5 +8,6 @@
 @media (max-width: 672px){
   .benefits {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
 }

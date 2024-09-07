@@ -2,12 +2,13 @@ import React from 'react';
 import styles from './logo.module.scss'
 import Image from "next/image";
 import LogoImg from '@/assets/icons/logo.svg'
-const Logo = ({}:LogoProps) => {
-    // const onClickHandler = () => {
-    //     onClick && onClick()
-    // }
+
+const Logo = ({onClick}: LogoProps) => {
+    const onClickHandler = () => {
+        onClick && onClick()
+    }
     return (
-        <div  className={styles.logo}>
+        <div className={styles.logo} onClick={onClickHandler}>
             <Image src={LogoImg as unknown as string} alt='logo' width={30} height={30}/>
             <h1 className={styles.logo__text}>VPN</h1>
         </div>
@@ -15,6 +16,7 @@ const Logo = ({}:LogoProps) => {
 };
 
 export default React.memo(Logo);
- interface LogoProps {
-     onClick?: () => void;
- }
+
+interface LogoProps {
+    onClick?: () => void;
+}

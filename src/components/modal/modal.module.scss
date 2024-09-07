@@ -1,18 +1,93 @@
 @use './../../styles/mixins';
+
 .modal {
+  position: relative;
   display: flex;
   padding-top: 24px;
   flex-direction: column;
   gap: 16px;
   width: 100%;
+ background: var(--white);
+  &__cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url("/icons/cross.svg");
+    cursor: pointer;
+
+    &:hover {
+      outline: 1px solid var(--grey);
+    }
+
+  }
+  &_error {
+    @include mixins.body-text;
+    color: var(--orange-dark);
+  }
 }
+
 .text {
   @include mixins.title-1;
   text-transform: uppercase;
 }
+
 .nickname {
   @include mixins.body-text;
   padding: 16px 0;
   border-top: 1px solid var(--grey-light);
   border-bottom: 1px solid var(--grey-light);
+}
+
+.input {
+  width: 100%;
+  height: 54px;
+  border-radius: 16px;
+  border: 1px solid var(--grey);
+  background: var(--grey-light);
+  padding: 0 16px;
+
+  &::placeholder {
+    color: var(--grey-medium);
+    @include mixins.body-text
+  }
+  &_error {
+    border: 1px solid var(--orange-dark);
+  }
+
+}
+
+.info {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+
+  &__img {
+    flex-shrink: 0;
+    width: 15px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("/icons/lock.svg");
+  }
+
+  &__text {
+    color: var(--grey);
+    @include mixins.footnote;
+  }
+}
+
+.button {
+  margin-top: 40px;
+}
+@media (max-width: 600px) {
+  .modal {
+    position: fixed;
+    top: 15px;
+    z-index: 101;
+    padding: 24px 16px;
+  }
 }

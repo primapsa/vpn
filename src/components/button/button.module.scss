@@ -9,6 +9,7 @@
   cursor: pointer;
 
   &_fullwidth {
+    max-width: none !important;
     width: 100% !important;
   }
 
